@@ -133,6 +133,31 @@
       font-weight: 700;
     }
 
+    /* Links & Maps styling */
+    a.map-link {
+      color: var(--sea-azure);
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+    a.map-link:hover {
+      color: var(--terracotta);
+    }
+    a.sidebar-map-link {
+      color: #93c5fd;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: color 0.2s ease;
+    }
+    a.sidebar-map-link:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
     /* Timeline Day Cards */
     .timeline {
       display: flex;
@@ -196,7 +221,7 @@
       color: var(--text-muted);
     }
 
-    /* Special Highlight Grid for Salerno */
+    /* Highlight Grid for Salerno */
     .salerno-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
@@ -311,11 +336,15 @@
         </div>
         <div class="info-line">
           <span class="info-label">Туди (FR 9027):</span>
-          <span class="info-val">24 вер • 20:10 Відень ➔ 21:50 Неаполь</span>
+          <span class="info-val">
+            24 вер • 20:10 <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Vienna+International+Airport" target="_blank">Відень (VIE)</a> ➔ 21:50 <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Naples+International+Airport" target="_blank">Неаполь (NAP)</a>
+          </span>
         </div>
         <div class="info-line">
           <span class="info-label">Назад (FR 7317):</span>
-          <span class="info-val">01 жов • 13:15 Палермо ➔ 15:15 Відень</span>
+          <span class="info-val">
+            01 жов • 13:15 <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Falcone+Borsellino+Airport+Palermo" target="_blank">Палермо (PMO)</a> ➔ 15:15 Відень
+          </span>
         </div>
         <div class="info-line">
           <span class="info-label">Тариф:</span>
@@ -330,11 +359,15 @@
         </div>
         <div class="info-line">
           <span class="info-label">Отримання:</span>
-          <span class="info-val">26 вер, 11:00 • Неаполь (Porto City Centre)</span>
+          <span class="info-val">
+            26 вер, 11:00 • <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Avis+Autonoleggio+Napoli+Porto+Piazzale+Immacolatella+Vecchia+1" target="_blank">📍 Avis Napoli Porto (P.le Immacolatella Vecchia 1)</a>
+          </span>
         </div>
         <div class="info-line">
           <span class="info-label">Повернення:</span>
-          <span class="info-val">29 вер, 17:00 • Палермо (Via U. Giordano 1)</span>
+          <span class="info-val">
+            29 вер, 17:00 • <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Avis+Autonoleggio+Palermo+Via+Umberto+Giordano+1" target="_blank">📍 Avis Palermo (Via U. Giordano 1)</a>
+          </span>
         </div>
         <div class="info-line">
           <span class="info-label">Авто та умови:</span>
@@ -354,8 +387,10 @@
             <h2 class="day-city">Неаполь</h2>
             <div class="day-sub">Приліт о 21:50 • Без авто в місті</div>
           </div>
-          <div style="font-size: 0.8rem; color: #94a3b8; margin-top: 10px;">
-            📍 Таксі з аеропорту: ~€21–25 (фіксований тариф)
+          <div style="font-size: 0.8rem; margin-top: 10px;">
+            <a class="sidebar-map-link" href="https://www.google.com/maps/search/?api=1&query=Naples+International+Airport" target="_blank">
+              📍 Таксі з NAP: ~€21–25 (фіксований тариф)
+            </a>
           </div>
         </div>
         <div class="day-content">
@@ -371,7 +406,7 @@
             <div class="hotel-specs">
               <span><b>Booking #:</b> 6901116290 (PIN: 5800)</span>
               <span><b>Кімната:</b> Camera 401 (Vikey Online Check-in)</span>
-              <span><b>Адреса:</b> Via Toledo, 429, Napoli</span>
+              <span><b>Адреса:</b> <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Maison+Toledo+Suites+Via+Toledo+429+Napoli" target="_blank">📍 Via Toledo, 429, Napoli</a></span>
             </div>
           </div>
         </div>
@@ -385,8 +420,10 @@
             <h2 class="day-city">Салерно ➔ Позітано</h2>
             <div class="day-sub">🚗 55 км від Неаполя • 🚤 Катер Travelmar</div>
           </div>
-          <div style="font-size: 0.8rem; color: #bae6fd; margin-top: 10px;">
-            🌊 Амальфітана з моря без заторів та гірських серпантинів
+          <div style="font-size: 0.8rem; margin-top: 10px;">
+            <a class="sidebar-map-link" href="https://www.google.com/maps/search/?api=1&query=Positano+Spiaggia+Grande" target="_blank">
+              🌊 Позітано з моря на Google Maps
+            </a>
           </div>
         </div>
         <div class="day-content">
@@ -398,15 +435,17 @@
               <div class="salerno-box">
                 <strong>🅿️ Де паркуватися:</strong>
                 <span>
-                  <strong>Parcheggio Piazza della Concordia</strong>.<br>
-                  Муніципальний паркінг прямо біля посадкового пірсу (~€2/год). Речі та валізи безпечно залишаються в закритому багажнику.
+                  <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Parcheggio+Piazza+della+Concordia+Salerno" target="_blank">
+                    📍 Parcheggio Piazza della Concordia
+                  </a><br>
+                  Муніципальний паркінг прямо біля посадкового пірсу (~€2/год). Речі та валізи залишаються в закритому багажнику.
                 </span>
               </div>
 
               <div class="salerno-box">
                 <strong>🚤 Катер Travelmar:</strong>
                 <span>
-                  Пірс: <strong>Molo Concordia</strong> (не Manfredi!).<br>
+                  Пірс: <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Molo+Piazza+Concordia+Salerno" target="_blank">📍 Molo Concordia</a> (не Manfredi!).<br>
                   Квитки в касі на пірсі або на travelmar.it (~€17/особа в один бік).
                 </span>
               </div>
@@ -414,8 +453,8 @@
               <div class="salerno-box">
                 <strong>⏱ Точний таймінг на воді:</strong>
                 <span>
-                  • <strong>13:10 ➔ 14:20:</strong> Катер Салерно ➔ Позітано<br>
-                  • <strong>14:20 – 16:50:</strong> 2,5 години в Позітано (вулички, кава, пляж)<br>
+                  • <strong>13:10 ➔ 14:20:</strong> Катер Салерно ➔ <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Molo+Positano" target="_blank">Позітано</a><br>
+                  • <strong>14:20 – 16:50:</strong> 2,5 години в Позітано (вулички, пляж)<br>
                   • <strong>17:00 ➔ 18:10:</strong> Катер назад у Салерно
                 </span>
               </div>
@@ -436,8 +475,10 @@
             <h2 class="day-city">Маратеа</h2>
             <div class="day-sub">Скеляста Базиліката • Прибуття о ~20:30</div>
           </div>
-          <div style="font-size: 0.8rem; color: #94a3b8; margin-top: 10px;">
-            ⛰ Cristo Redentore на горі Сан-Б'яджо
+          <div style="font-size: 0.8rem; margin-top: 10px;">
+            <a class="sidebar-map-link" href="https://www.google.com/maps/search/?api=1&query=Cristo+Redentore+di+Maratea" target="_blank">
+              ⛰ Cristo Redentore на Google Maps
+            </a>
           </div>
         </div>
         <div class="day-content">
@@ -453,7 +494,7 @@
             <div class="hotel-specs">
               <span><b>Booking #:</b> 6566483496 (PIN: 8109)</span>
               <span><b>Номер:</b> Superior Double Room</span>
-              <span><b>Адреса:</b> Via Carlo Mazzei 4, Maratea</span>
+              <span><b>Адреса:</b> <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=La+Locanda+Delle+Donne+Monache+Via+Carlo+Mazzei+4+Maratea" target="_blank">📍 Via Carlo Mazzei 4, Maratea</a></span>
               <span><b>Паркінг:</b> Власний приватний + Valet-service</span>
             </div>
           </div>
@@ -468,14 +509,16 @@
             <h2 class="day-city">Тропеа</h2>
             <div class="day-sub">Автострада A2 через Калабрію (~210 км)</div>
           </div>
-          <div style="font-size: 0.8rem; color: #94a3b8; margin-top: 10px;">
-            🌅 Захід сонця: маяк Capo Vaticano (15 хв на авто)
+          <div style="font-size: 0.8rem; margin-top: 10px;">
+            <a class="sidebar-map-link" href="https://www.google.com/maps/search/?api=1&query=Faro+di+Capo+Vaticano" target="_blank">
+              🌅 Захід сонця: маяк Capo Vaticano
+            </a>
           </div>
         </div>
         <div class="day-content">
           <div class="plan-block">
             <h4>Програма та акценти</h4>
-            <p>Заїзд о 14:30–15:00 безпосередньо у двір вілли поза зонами ZTL. Прогулянка скелястим старим містом над білими пляжами, церква Санта-Марія-дель-Ізола. Поїздка на захід сонця до маяка Капо-Ватикано з видом на вулкан Стромболі. Вечеря з червоною цибулею та ндуєю.</p>
+            <p>Заїзд о 14:30–15:00 безпосередньо у двір вілли поза зонами ZTL. Прогулянка скелястим старим містом над білими пляжами, церква <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Santuario+di+Santa+Maria+dell+Isola+di+Tropea" target="_blank">Санта-Марія-дель-Ізола</a>. Поїздка на захід сонця до маяка Капо-Ватикано з видом на вулкан Стромболі. Вечеря з червоною цибулею та ндуєю.</p>
           </div>
           <div class="confirmed-hotel">
             <div class="hotel-top">
@@ -485,7 +528,7 @@
             <div class="hotel-specs">
               <span><b>Booking #:</b> 6202976965 (PIN: 8510)</span>
               <span><b>Номер:</b> Triple Room with Terrace</span>
-              <span><b>Адреса:</b> Viale Don Mottola 338, Tropea</span>
+              <span><b>Адреса:</b> <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Residenza+RoMa+Viale+Don+Mottola+338+Tropea" target="_blank">📍 Viale Don Mottola 338, Tropea</a></span>
               <span><b>Паркінг:</b> Безкоштовний закритий паркінг у дворі</span>
             </div>
           </div>
@@ -500,14 +543,16 @@
             <h2 class="day-city">Чефалу</h2>
             <div class="day-sub">Пором Caronte (~35 хв) + траса A20 (~270 км)</div>
           </div>
-          <div style="font-size: 0.8rem; color: #94a3b8; margin-top: 10px;">
-            ⚓ Пором: Villa San Giovanni ➔ Messina
+          <div style="font-size: 0.8rem; margin-top: 10px;">
+            <a class="sidebar-map-link" href="https://www.google.com/maps/search/?api=1&query=Caronte+Tourist+Imbarco+Villa+San+Giovanni" target="_blank">
+              ⚓ Пором: Imbarco Villa San Giovanni
+            </a>
           </div>
         </div>
         <div class="day-content">
           <div class="plan-block">
             <h4>Програма та акценти</h4>
-            <p>10:30 старт із Тропеа до поромної переправи через Мессінську протоку (пароми кожні 20–30 хв). Заселення на віллу до 16:00, машина залишається біля воріт. Піший спуск у середньовічне містечко до собору XII ст., вечеря біля води, а підйом назад — на таксі (~€15–20).</p>
+            <p>10:30 старт із Тропеа до поромної переправи через Мессінську протоку (пароми кожні 20–30 хв). Заселення на віллу до 16:00, машина залишається біля воріт. Піший спуск у середньовічне містечко до <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Duomo+di+Cefalu" target="_blank">Собору XII ст.</a>, вечеря біля води, а підйом назад — на таксі (~€15–20).</p>
           </div>
           <div class="confirmed-hotel">
             <div class="hotel-top">
@@ -517,7 +562,7 @@
             <div class="hotel-specs">
               <span><b>Booking #:</b> 6629248011 (PIN: 5086)</span>
               <span><b>Номер:</b> Double with Balcony & Sea View</span>
-              <span><b>Адреса:</b> Via Campella, 54, Cefalù</span>
+              <span><b>Адреса:</b> <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Infinity+Blue+Via+Campella+54+Cefalu" target="_blank">📍 Via Campella, 54, Cefalù</a></span>
               <span><b>Паркінг:</b> Приватне паркомісце біля вілли на пагорбі</span>
             </div>
           </div>
@@ -532,14 +577,16 @@
             <h2 class="day-city">Палермо</h2>
             <div class="day-sub">Чефалу ➔ Палермо (~70 км) • Фінал подорожі</div>
           </div>
-          <div style="font-size: 0.8rem; color: #94a3b8; margin-top: 10px;">
-            🏁 Здача авто: 29 вер до 17:00 (Avis Notarbartolo)
+          <div style="font-size: 0.8rem; margin-top: 10px;">
+            <a class="sidebar-map-link" href="https://www.google.com/maps/search/?api=1&query=Avis+Autonoleggio+Palermo+Via+Umberto+Giordano+1" target="_blank">
+              🏁 Здача авто: Avis Notarbartolo
+            </a>
           </div>
         </div>
         <div class="day-content">
           <div class="plan-block">
             <h4>Програма та акценти</h4>
-            <p>29 вересня: здача машини в Avis, таксі до палаццо. Відпочинок у підземному спа, вечеря на панорамному даху. 30 вересня: піший день — палаци норманів, собор, колоритний ринок Il Capo. 1 жовтня: виклик таксі на 10:30 на рейс Ryanair FR 7317 (13:15).</p>
+            <p>29 вересня: здача машини в Avis, таксі до палаццо. Відпочинок у підземному спа, вечеря на панорамному даху. 30 вересня: піший день — <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Palazzo+dei+Normanni+Palermo" target="_blank">палаци норманів</a>, <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Cattedrale+di+Palermo" target="_blank">Катедральний собор</a>, ринок Il Capo. 1 жовтня: виклик таксі на 10:30 на рейс Ryanair FR 7317 (13:15).</p>
           </div>
           <div class="confirmed-hotel">
             <div class="hotel-top">
@@ -549,7 +596,7 @@
             <div class="hotel-specs">
               <span><b>Booking #:</b> 5353637833 (PIN: 4339)</span>
               <span><b>Особливості:</b> Підземний спа-комплекс, ресторан на даху</span>
-              <span><b>Адреса:</b> Via dei Candelai, 68, Palermo</span>
+              <span><b>Адреса:</b> <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=LOCANDA+SANTAMARINA+Dimora+di+Charme+Via+dei+Candelai+68+Palermo" target="_blank">📍 Via dei Candelai, 68, Palermo</a></span>
               <span><b>Трансфер:</b> Таксі в аеропорт PMO (~€45–50, 35 хв)</span>
             </div>
           </div>
@@ -560,7 +607,7 @@
   </main>
 
   <footer>
-    <p>Італія 2026 • Усі документи, бронювання, паркінги та розклади синхронізовано</p>
+    <p>Італія 2026 • Усі документи, бронювання, паркінги, геолокації та розклади синхронізовано</p>
   </footer>
 
 </body>

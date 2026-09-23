@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Гранд-тур Тірренським узбережжям: Неаполь — Палермо 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --terracotta: #c2593f;
+      --terracotta-dark: #9e3f28;
+      --sea-deep: #0f2338;
+      --sea-azure: #0284c7;
+      --sand-bg: #f8f6f0;
+      --card-bg: #ffffff;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --border-color: #e2d9c8;
+      --gold: #d4a373;
+      --badge-green: #16a34a;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--sand-bg);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, .brand-font {
+      font-family: 'Cinzel', serif;
+      letter-spacing: 0.5px;
+    }
+
+    header.hero {
+      background: linear-gradient(180deg, rgba(15, 35, 56, 0.88) 0%, rgba(15, 35, 56, 0.65) 100%),
+                  radial-gradient(ellipse at top, #0284c7 0%, #0f2338 100%);
+      color: #fff;
+      padding: 65px 20px 50px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(212, 163, 115, 0.25);
+      border: 1px solid var(--gold);
+      color: #fed7aa;
+      padding: 5px 16px;
+      border-radius: 30px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+    }
+    .hero h1 {
+      font-size: 2.6rem;
+      margin-bottom: 8px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: #e2e8f0;
+      max-width: 700px;
+      margin: 0 auto 24px;
+    }
+    .stats-row {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    .stat-pill {
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 10px 20px;
+      border-radius: 12px;
+      text-align: center;
+    }
+    .stat-val { font-size: 1.3rem; font-weight: 700; color: #fff; }
+    .stat-lbl { font-size: 0.72rem; text-transform: uppercase; color: #cbd5e1; }
+
+    .container {
+      max-width: 1060px;
+      margin: -25px auto 60px;
+      padding: 0 20px;
+    }
+
+    /* Key Logistics Cards Grid */
+    .logistics-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 35px;
+    }
+    .info-card {
+      background: var(--card-bg);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      border: 1px solid var(--border-color);
+    }
+    .card-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--sea-deep);
+      margin-bottom: 14px;
+      border-bottom: 1px solid #f1f5f9;
+      padding-bottom: 10px;
+    }
+    .info-line {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      margin-bottom: 8px;
+    }
+    .info-line:last-child { margin-bottom: 0; }
+    .info-label { color: var(--text-muted); }
+    .info-val { font-weight: 600; text-align: right; color: var(--text-main); }
+    .tag-badge {
+      display: inline-block;
+      background: #e0f2fe;
+      color: #0369a1;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    /* Timeline Day Cards */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .day-card {
+      background: var(--card-bg);
+      border-radius: 20px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.03);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+    }
+    .day-sidebar {
+      background: linear-gradient(150deg, #18334f, #0f2338);
+      color: #fff;
+      padding: 26px 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .day-badge {
+      display: inline-block;
+      background: var(--terracotta);
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+      width: fit-content;
+    }
+    .day-city {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: #fff;
+    }
+    .day-sub {
+      font-size: 0.85rem;
+      color: #93c5fd;
+    }
+    .day-content {
+      padding: 26px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .plan-block h4 {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
+    }
+    .plan-block p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+
+    /* Special Highlight Grid for Salerno */
+    .salerno-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .salerno-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 12px 14px;
+    }
+    .salerno-box strong {
+      display: block;
+      color: var(--sea-deep);
+      font-size: 0.88rem;
+      margin-bottom: 4px;
+    }
+    .salerno-box span {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+      display: block;
+    }
+
+    /* Confirmed Hotel Info Box */
+    .confirmed-hotel {
+      background: #fdfaf6;
+      border: 1px solid var(--gold);
+      border-radius: 14px;
+      padding: 16px 20px;
+    }
+    .hotel-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .hotel-name {
+      font-weight: 700;
+      color: var(--sea-deep);
+      font-size: 1.05rem;
+    }
+    .status-confirmed {
+      background: #dcfce7;
+      color: #15803d;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 20px;
+      border: 1px solid #bbf7d0;
+    }
+    .hotel-specs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 8px 16px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+    .hotel-specs span b { color: var(--text-main); }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px 40px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    @media(max-width: 850px) {
+      .day-card { grid-template-columns: 1fr; }
+      .logistics-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Header -->
+  <header class="hero">
+    <div class="hero-badge">Подорож Італією • 24 вер – 01 жов 2026</div>
+    <h1>Неаполь ➔ Палермо</h1>
+    <p>Кампанія • Салерно • Базиліката • Калабрія • Сицилія — всі бронювання зафіксовано</p>
+    
+    <div class="stats-row">
+      <div class="stat-pill">
+        <div class="stat-val">7 Ночей</div>
+        <div class="stat-lbl">Тривалість</div>
+      </div>
+      <div class="stat-pill">
+        <div class="stat-val">4 Регіони</div>
+        <div class="stat-lbl">Південь Італії</div>
+      </div>
+      <div class="stat-pill">
+        <div class="stat-val">Peugeot 208</div>
+        <div class="stat-lbl">Оренда Avis</div>
+      </div>
+      <div class="stat-pill">
+        <div class="stat-val">100%</div>
+        <div class="stat-lbl">Статус готелів</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Key Logistics Cards -->
+    <section class="logistics-grid">
+      <!-- Flights -->
+      <div class="info-card">
+        <div class="card-title">
+          <span>✈️ Авіаперельоти (Ryanair • PNR: <b>H8EHSX</b>)</span>
+        </div>
+        <div class="info-line">
+          <span class="info-label">Туди (FR 9027):</span>
+          <span class="info-val">24 вер • 20:10 Відень ➔ 21:50 Неаполь</span>
+        </div>
+        <div class="info-line">
+          <span class="info-label">Назад (FR 7317):</span>
+          <span class="info-val">01 жов • 13:15 Палермо ➔ 15:15 Відень</span>
+        </div>
+        <div class="info-line">
+          <span class="info-label">Тариф:</span>
+          <span class="info-val"><span class="tag-badge">Priority & 2 Cabin Bags</span></span>
+        </div>
+      </div>
+
+      <!-- Car Rental -->
+      <div class="info-card">
+        <div class="card-title">
+          <span>🚗 Оренда авто (Avis • <b>#2677-0261-UA-0</b>)</span>
+        </div>
+        <div class="info-line">
+          <span class="info-label">Отримання:</span>
+          <span class="info-val">26 вер, 11:00 • Неаполь (Porto City Centre)</span>
+        </div>
+        <div class="info-line">
+          <span class="info-label">Повернення:</span>
+          <span class="info-val">29 вер, 17:00 • Палермо (Via U. Giordano 1)</span>
+        </div>
+        <div class="info-line">
+          <span class="info-label">Авто та умови:</span>
+          <span class="info-val">Peugeot 208 • Безлімітний пробіг • Повне покриття</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline Days -->
+    <div class="timeline">
+
+      <!-- Stop 1: Naples -->
+      <article class="day-card">
+        <div class="day-sidebar">
+          <div>
+            <div class="day-badge">24 – 26 вересня (2 ночі)</div>
+            <h2 class="day-city">Неаполь</h2>
+            <div class="day-sub">Приліт о 21:50 • Без авто в місті</div>
+          </div>
+          <div style="font-size: 0.8rem; color: #94a3b8; margin-top: 10px;">
+            📍 Таксі з аеропорту: ~€21–25 (фіксований тариф)
+          </div>
+        </div>
+        <div class="day-content">
+          <div class="plan-block">
+            <h4>Програма та акценти</h4>
+            <p>24 вересня — приліт, таксі до Via Toledo, пізня неаполітанська піца. 25 вересня — пішохідний день: колоритні вулички Спакканаполі, галерея Умберто I, набережна К'яя. 26 вересня — піший вихід до порту Неаполя для отримання авто в Avis об 11:00.</p>
+          </div>
+          <div class="confirmed-hotel">
+            <div class="hotel-top">
+              <div class="hotel-name">Maison Toledo Suites</div>
+              <span class="status-confirmed">✓ Заброньовано</span>
+            </div>
+            <div class="hotel-specs">
+              <span><b>Booking #:</b> 6901116290 (PIN: 5800)</span>
+              <span><b>Кімната:</b> Camera 401 (Vikey Online Check-in)</span>
+              <span><b>Адреса:</b> Via Toledo, 429, Napoli</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Special Block: Salerno & Boat Trip to Positano -->
+      <article class="day-card" style="border: 2px solid var(--sea-azure);">
+        <div class="day-sidebar" style="background: linear-gradient(150deg, #09476a, #0b2844);">
+          <div>
+            <div class="day-badge" style="background: var(--sea-azure);">26 вересня • Денний заїзд</div>
+            <h2 class="day-city">Салерно ➔ Позітано</h2>
+            <div class="day-sub">🚗 55 км від Неаполя • 🚤 Катер Travelmar</div>
+          </div>
+          <div style="font-size: 0.8rem; color: #bae6fd; margin-top: 10px;">
+            🌊 Амальфітана з моря без заторів та гірських серпантинів
+          </div>
+        </div>
+        <div class="day-content">
+          <div class="plan-block">
+            <h4>Логістика візиту та морська вилазка</h4>
+            <p>Об 11:00 отримання машини в порту Неаполя, виїзд автострадою A3 до Салерно (~45 хв). Залишаємо авто на стоянці та вирушаємо катером уздовж найвідоміших скель і містечок узбережжя.</p>
+            
+            <div class="salerno-grid">
+              <div class="salerno-box">
+                <strong>🅿️ Де паркуватися:</strong>
+                <span>
+                  <strong>Parcheggio Piazza della Concordia</strong>.<br>
+                  Муніципальний паркінг прямо біля посадкового пірсу (~€2/год). Речі та валізи безпечно залишаються в закритому багажнику.
+                </span>
+              </div>
+
+              <div class="salerno-box">
+                <strong>🚤 Катер Travelmar:</strong>
+                <span>
+                  Пірс: <strong>Molo Concordia</strong> (не Manfredi!).<br>
+                  Квитки в касі на пірсі або на travelmar.it (~€17/особа в один бік).
+                </span>
+              </div>
+
+              <div class="salerno-box">
+                <strong>⏱ Точний таймінг на воді:</strong>
+                <span>
+                  • <strong>13:10 ➔ 14:20:</strong> Катер Салерно ➔ Позітано<br>
+                  • <strong>14:20 – 16:50:</strong> 2,5 години в Позітано (вулички, кава, пляж)<br>
+                  • <strong>17:00 ➔ 18:10:</strong> Катер назад у Салерно
+                </span>
+              </div>
+            </div>
+            
+            <p style="margin-top: 14px; font-size: 0.88rem; color: var(--terracotta);">
+              👉 <em>О 18:30 виїзд із паркінгу Салерно автострадою A2 на південь до першої ночівлі в Маратеа (~155 км, 2 год).</em>
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Stop 2: Maratea -->
+      <article class="day-card">
+        <div class="day-sidebar">
+          <div>
+            <div class="day-badge">26 – 27 вересня (1 ніч)</div>
+            <h2 class="day-city">Маратеа</h2>
+            <div class="day-sub">Скеляста Базиліката • Прибуття о ~20:30</div>
+          </div>
+          <div style="font-size: 0.8rem; color: #94a3b8; margin-top: 10px;">
+            ⛰ Cristo Redentore на горі Сан-Б'яджо
+          </div>
+        </div>
+        <div class="day-content">
+          <div class="plan-block">
+            <h4>Програма та акценти</h4>
+            <p>Прибуття о ~20:30, зустріч консьєржем готелю, вечеря в середньовічному борго. Вранці 27 вересня — підйом на авто до гігантської статуї Христа Спасителя з круговою панорамою затоки Полікастро, після чого виїзд трасою A2 на південь до Калабрії.</p>
+          </div>
+          <div class="confirmed-hotel">
+            <div class="hotel-top">
+              <div class="hotel-name">La Locanda Delle Donne Monache (4★)</div>
+              <span class="status-confirmed">✓ Заброньовано</span>
+            </div>
+            <div class="hotel-specs">
+              <span><b>Booking #:</b> 6566483496 (PIN: 8109)</span>
+              <span><b>Номер:</b> Superior Double Room</span>
+              <span><b>Адреса:</b> Via Carlo Mazzei 4, Maratea</span>
+              <span><b>Паркінг:</b> Власний приватний + Valet-service</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Stop 3: Tropea -->
+      <article class="day-card">
+        <div class="day-sidebar">
+          <div>
+            <div class="day-badge">27 – 28 вересня (1 ніч)</div>
+            <h2 class="day-city">Тропеа</h2>
+            <div class="day-sub">Автострада A2 через Калабрію (~210 км)</div>
+          </div>
+          <div style="font-size: 0.8rem; color: #94a3b8; margin-top: 10px;">
+            🌅 Захід сонця: маяк Capo Vaticano (15 хв на авто)
+          </div>
+        </div>
+        <div class="day-content">
+          <div class="plan-block">
+            <h4>Програма та акценти</h4>
+            <p>Заїзд о 14:30–15:00 безпосередньо у двір вілли поза зонами ZTL. Прогулянка скелястим старим містом над білими пляжами, церква Санта-Марія-дель-Ізола. Поїздка на захід сонця до маяка Капо-Ватикано з видом на вулкан Стромболі. Вечеря з червоною цибулею та ндуєю.</p>
+          </div>
+          <div class="confirmed-hotel">
+            <div class="hotel-top">
+              <div class="hotel-name">Residenza RoMa</div>
+              <span class="status-confirmed">✓ Оплачено (€170.94)</span>
+            </div>
+            <div class="hotel-specs">
+              <span><b>Booking #:</b> 6202976965 (PIN: 8510)</span>
+              <span><b>Номер:</b> Triple Room with Terrace</span>
+              <span><b>Адреса:</b> Viale Don Mottola 338, Tropea</span>
+              <span><b>Паркінг:</b> Безкоштовний закритий паркінг у дворі</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Stop 4: Cefalu -->
+      <article class="day-card">
+        <div class="day-sidebar">
+          <div>
+            <div class="day-badge">28 – 29 вересня (1 ніч)</div>
+            <h2 class="day-city">Чефалу</h2>
+            <div class="day-sub">Пором Caronte (~35 хв) + траса A20 (~270 км)</div>
+          </div>
+          <div style="font-size: 0.8rem; color: #94a3b8; margin-top: 10px;">
+            ⚓ Пором: Villa San Giovanni ➔ Messina
+          </div>
+        </div>
+        <div class="day-content">
+          <div class="plan-block">
+            <h4>Програма та акценти</h4>
+            <p>10:30 старт із Тропеа до поромної переправи через Мессінську протоку (пароми кожні 20–30 хв). Заселення на віллу до 16:00, машина залишається біля воріт. Піший спуск у середньовічне містечко до собору XII ст., вечеря біля води, а підйом назад — на таксі (~€15–20).</p>
+          </div>
+          <div class="confirmed-hotel">
+            <div class="hotel-top">
+              <div class="hotel-name">Infinity Blue</div>
+              <span class="status-confirmed">✓ Оплачено (€193.00)</span>
+            </div>
+            <div class="hotel-specs">
+              <span><b>Booking #:</b> 6629248011 (PIN: 5086)</span>
+              <span><b>Номер:</b> Double with Balcony & Sea View</span>
+              <span><b>Адреса:</b> Via Campella, 54, Cefalù</span>
+              <span><b>Паркінг:</b> Приватне паркомісце біля вілли на пагорбі</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Stop 5: Palermo -->
+      <article class="day-card">
+        <div class="day-sidebar">
+          <div>
+            <div class="day-badge">29 вер – 01 жовтня (2 ночі)</div>
+            <h2 class="day-city">Палермо</h2>
+            <div class="day-sub">Чефалу ➔ Палермо (~70 км) • Фінал подорожі</div>
+          </div>
+          <div style="font-size: 0.8rem; color: #94a3b8; margin-top: 10px;">
+            🏁 Здача авто: 29 вер до 17:00 (Avis Notarbartolo)
+          </div>
+        </div>
+        <div class="day-content">
+          <div class="plan-block">
+            <h4>Програма та акценти</h4>
+            <p>29 вересня: здача машини в Avis, таксі до палаццо. Відпочинок у підземному спа, вечеря на панорамному даху. 30 вересня: піший день — палаци норманів, собор, колоритний ринок Il Capo. 1 жовтня: виклик таксі на 10:30 на рейс Ryanair FR 7317 (13:15).</p>
+          </div>
+          <div class="confirmed-hotel">
+            <div class="hotel-top">
+              <div class="hotel-name">LOCANDA SANTAMARINA Dimora di Charme (4★)</div>
+              <span class="status-confirmed">✓ Заброньовано</span>
+            </div>
+            <div class="hotel-specs">
+              <span><b>Booking #:</b> 5353637833 (PIN: 4339)</span>
+              <span><b>Особливості:</b> Підземний спа-комплекс, ресторан на даху</span>
+              <span><b>Адреса:</b> Via dei Candelai, 68, Palermo</span>
+              <span><b>Трансфер:</b> Таксі в аеропорт PMO (~€45–50, 35 хв)</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>Італія 2026 • Усі документи, бронювання, паркінги та розклади синхронізовано</p>
+  </footer>
+
+</body>
+</html>

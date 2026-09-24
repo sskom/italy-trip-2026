@@ -40,12 +40,11 @@
     }
 
     header.hero {
-      background: linear-gradient(180deg, rgba(15, 35, 56, 0.90) 0%, rgba(15, 35, 56, 0.70) 100%),
+      background: linear-gradient(180deg, rgba(15, 35, 56, 0.88) 0%, rgba(15, 35, 56, 0.65) 100%),
                   radial-gradient(ellipse at top, #0284c7 0%, #0f2338 100%);
       color: #fff;
       padding: 65px 20px 50px;
       text-align: center;
-      position: relative;
     }
     .hero-badge {
       display: inline-block;
@@ -68,7 +67,7 @@
     .hero p {
       font-size: 1.1rem;
       color: #e2e8f0;
-      max-width: 750px;
+      max-width: 700px;
       margin: 0 auto 24px;
     }
     .stats-row {
@@ -88,7 +87,7 @@
     .stat-val { font-size: 1.3rem; font-weight: 700; color: #fff; }
     .stat-lbl { font-size: 0.72rem; text-transform: uppercase; color: #cbd5e1; }
 
-    /* Динамічна кнопка та блок погоди */
+    /* Weather Pill & Dropdown Drawer */
     .stat-pill-btn {
       background: rgba(255, 255, 255, 0.16);
       backdrop-filter: blur(8px);
@@ -108,35 +107,35 @@
     .stat-pill-btn:hover {
       background: rgba(255, 255, 255, 0.28);
       transform: translateY(-2px);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
     .weather-panel {
       display: none;
       max-width: 1060px;
-      margin: 22px auto 0;
-      background: rgba(15, 35, 56, 0.96);
-      backdrop-filter: blur(14px);
+      margin: 20px auto 0;
+      background: rgba(15, 35, 56, 0.95);
+      backdrop-filter: blur(12px);
       border: 1px solid rgba(255, 255, 255, 0.25);
-      border-radius: 18px;
-      padding: 24px;
+      border-radius: 16px;
+      padding: 22px;
       text-align: left;
       animation: fadeIn 0.3s ease forwards;
     }
     .weather-panel.active { display: block; }
     .weather-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 12px;
       margin-top: 14px;
     }
     .weather-day-card {
       background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.15);
       border-radius: 12px;
       padding: 12px 14px;
     }
     .weather-date {
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       color: #fed7aa;
       font-weight: 700;
       text-transform: uppercase;
@@ -148,7 +147,7 @@
       color: #fff;
     }
     .weather-temp {
-      font-size: 0.92rem;
+      font-size: 0.95rem;
       color: #93c5fd;
       margin: 4px 0 6px;
       font-weight: 600;
@@ -403,8 +402,8 @@
         <div class="stat-lbl">Південь Італії</div>
       </div>
       <div class="stat-pill">
-        <div class="stat-val">Peugeot 208</div>
-        <div class="stat-lbl">Оренда Avis</div>
+        <div class="stat-val">Avis (09:00)</div>
+        <div class="stat-lbl">Оренда авто</div>
       </div>
       <div class="stat-pill">
         <div class="stat-val">100%</div>
@@ -417,62 +416,57 @@
       </button>
     </div>
 
-    <!-- Розкривний підкат прогнозу погоди -->
+    <!-- Підкат прогнозу погоди -->
     <div class="weather-panel" id="weatherDropdown">
       <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 10px;">
         <h3 style="color: #fff; font-size: 1.15rem;">🌤️ Прогноз погоди та поради щодо гардероба на маршруті</h3>
-        <span onclick="toggleWeather()" style="cursor: pointer; color: #93c5fd; font-size: 0.85rem; font-weight: 600;">Згорнути ✕</span>
+        <span onclick="toggleWeather()" style="cursor: pointer; color: #93c5fd; font-size: 0.85rem;">Згорнути ✕</span>
       </div>
 
       <div class="weather-grid">
-        <!-- 24-25 вер Неаполь -->
         <div class="weather-day-card">
           <div class="weather-date">24 – 25 вер</div>
           <div class="weather-loc">Неаполь</div>
           <div class="weather-temp">🌡️ +24…+26°C (ніч +17°C)</div>
-          <div class="weather-desc">Сонячно, сухе комфортне тепло. Ввечері легкий бриз із Неаполітанської затоки.</div>
-          <div class="weather-clothing">👕 <strong>Одяг:</strong> льон, бавовна, зручні амортизуючі кросівки для бруківки, легкий джемпер на вечір.</div>
+          <div class="weather-desc">Сонячно, змінна хмарність, сухе тепло. Бриз із затоки ввечері.</div>
+          <div class="weather-clothing">👕 <strong>Одяг:</strong> льон, зручні міські кросівки (слизький брук), легкий джемпер на вечір.</div>
         </div>
 
-        <!-- 26 вер Салерно & Маратеа -->
         <div class="weather-day-card">
           <div class="weather-date">26 вер</div>
           <div class="weather-loc">Салерно & Маратеа</div>
           <div class="weather-temp">🌡️ +25…+27°C (ніч +16°C)</div>
-          <div class="weather-desc">Ясно. На відкритій палубі катера відчутний морський вітер; у горах Маратеа ввечері свіжішає.</div>
-          <div class="weather-clothing">🧥 <strong>Одяг:</strong> вітрівка/худі на катер у Позітано, окуляри (без капелюхів, які зносить), джинси на вечір.</div>
+          <div class="weather-desc">Ясно. На відкритій палубі катера сильний морський вітер; у горах Маратеа свіжішає.</div>
+          <div class="weather-clothing">🧥 <strong>Одяг:</strong> вітрівка/худі на катер у Позітано, окуляри (без капелюхів, які зносить).</div>
         </div>
 
-        <!-- 27 вер Тропеа -->
         <div class="weather-day-card">
           <div class="weather-date">27 вер</div>
           <div class="weather-loc">Тропеа & Капо-Ватикано</div>
           <div class="weather-temp">🌡️ +25…+27°C (вода +24°C)</div>
-          <div class="weather-desc">Справжнє літо. Вітряно на скелястому оглядовому майданчику маяка на заході сонця.</div>
-          <div class="weather-clothing">🩳 <strong>Одяг:</strong> купальники напоготові, сандалі/коралки для пляжу, вечірня сорочка/накидка на маяк.</div>
+          <div class="weather-desc">Пляжне літо. Вітряно на відкритих скелях маяка на заході сонця.</div>
+          <div class="weather-clothing">🩳 <strong>Одяг:</strong> купальники напоготові, вечірня сорочка/накидка на маяк.</div>
         </div>
 
-        <!-- 28 вер Чефалу -->
         <div class="weather-day-card">
           <div class="weather-date">28 вер</div>
           <div class="weather-loc">Пором & Чефалу</div>
           <div class="weather-temp">🌡️ +26…+28°C (ніч +19°C)</div>
-          <div class="weather-desc">Сонце. Вітер у Мессінській протоці на поромі. Теплий вечір біля підніжжя скелі.</div>
-          <div class="weather-clothing">👟 <strong>Одяг:</strong> легке вбрання, зручне взуття для кам'янистого спуску до Собору XII ст.</div>
+          <div class="weather-desc">Справжнє літо. Вітер у протоці під час 35-хв переправи. Теплий вечір біля скелі.</div>
+          <div class="weather-clothing">👟 <strong>Одяг:</strong> легкий одяг, сандалі/кеди для пішого спуску до Собору XII ст.</div>
         </div>
 
-        <!-- 29 вер - 01 жов Палермо -->
         <div class="weather-day-card">
           <div class="weather-date">29 вер – 01 жов</div>
           <div class="weather-loc">Палермо</div>
           <div class="weather-temp">🌡️ +27…+29°C (ніч +20°C)</div>
-          <div class="weather-desc">Сухо й спекотно в історичному центрі міста, помірна вологість біля порту.</div>
-          <div class="weather-clothing">🏛️ <strong>Одяг:</strong> дихаючі речі; палантин/хустка для храмів (прикрити плечі й коліна у соборах).</div>
+          <div class="weather-desc">Сухо, спекотно в міському каньйоні палаццо, висока вологість.</div>
+          <div class="weather-clothing">🏛️ <strong>Одяг:</strong> дихаючі тканини; хустка/палантин для відвідин соборів (плечі й коліна).</div>
         </div>
       </div>
 
-      <div style="margin-top: 14px; font-size: 0.82rem; color: #cbd5e1; border-top: 1px dashed rgba(255,255,255,0.2); padding-top: 10px;">
-        💡 <strong>Загальний чеклист:</strong> Компактна парасолька або дощовик (на випадок короткочасної 20-хв зливи), крем SPF 30–50, дрібні монети для паркоматів і ліфта в Неаполі.
+      <div style="margin-top: 14px; font-size: 0.8rem; color: #cbd5e1; border-top: 1px dashed rgba(255,255,255,0.2); padding-top: 10px;">
+        💡 <strong>Загальний чеклист:</strong> Компактна парасолька, крем SPF 30–50 (обгоріти на воді найпростіше), готівка монетами для ліфтів і парковок.
       </div>
     </div>
   </header>
@@ -489,30 +483,32 @@
         <div class="info-line">
           <span class="info-label">Туди (FR 9027):</span>
           <span class="info-val">
-            24 вер • 20:10 <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Vienna+International+Airport" target="_blank">Відень (VIE)</a> ➔ 21:50 <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Naples+International+Airport" target="_blank">Неаполь (NAP)</a>
+            24 вер • 20:10 <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Vienna+International+Airport" target="_blank">Відень (VIE)</a> ➔ 21:50 <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Naples+International+Airport" target="_blank">Неаполь (NAP)</a><br>
+            <span style="font-size: 0.78rem; color: var(--sea-azure);">Місця: <b>08E, 08F</b></span>
           </span>
         </div>
         <div class="info-line">
           <span class="info-label">Назад (FR 7317):</span>
           <span class="info-val">
-            01 жов • 13:15 <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Falcone+Borsellino+Airport+Palermo" target="_blank">Палермо (PMO)</a> ➔ 15:15 Відень
+            01 жов • 13:15 <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Falcone+Borsellino+Airport+Palermo" target="_blank">Палермо (PMO)</a> ➔ 15:15 Відень<br>
+            <span style="font-size: 0.78rem; color: var(--sea-azure);">Місця: <b>11A, 11B</b></span>
           </span>
         </div>
         <div class="info-line">
           <span class="info-label">Тариф:</span>
-          <span class="info-val"><span class="tag-badge">Priority & 2 Cabin Bags</span></span>
+          <span class="info-val"><span class="tag-badge">Non-Priority • 1 Small Bag Only</span></span>
         </div>
       </div>
 
       <!-- Car Rental -->
       <div class="info-card">
         <div class="card-title">
-          <span>🚗 Оренда авто (Avis • <b>#2677-0261-UA-0</b>)</span>
+          <span>🚗 Оренда авто (Avis • <b>#2677-0261-UA-0 W</b>)</span>
         </div>
         <div class="info-line">
           <span class="info-label">Отримання:</span>
           <span class="info-val">
-            26 вер, 11:00 • <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Avis+Autonoleggio+Napoli+Porto+Piazzale+Immacolatella+Vecchia+1" target="_blank">📍 Avis Napoli Porto (P.le Immacolatella Vecchia 1)</a>
+            <strong>26 вер, 09:00</strong> • <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Avis+Autonoleggio+Napoli+Porto+Piazzale+Immacolatella+Vecchia+1" target="_blank">📍 Avis Napoli Porto (P.le Immacolatella Vecchia 1)</a>
           </span>
         </div>
         <div class="info-line">
@@ -523,7 +519,7 @@
         </div>
         <div class="info-line">
           <span class="info-label">Авто та умови:</span>
-          <span class="info-val">Peugeot 208 • Безлімітний пробіг • Повне покриття</span>
+          <span class="info-val">Economy (Peugeot 208) • Безлімітний пробіг • Повне покриття</span>
         </div>
       </div>
     </section>
@@ -548,7 +544,7 @@
         <div class="day-content">
           <div class="plan-block">
             <h4>Програма та акценти</h4>
-            <p>24 вересня — приліт о 21:50, таксі до Via Toledo, пізня неаполітанська піца. 25 вересня — насичений день пішки: Спакканаполі, набережна з видом на Везувій, панорама з пагорба Вомеро. 26 вересня — піший вихід до порту для отримання авто в Avis об 11:00.</p>
+            <p>24 вересня — приліт о 21:50, таксі до Via Toledo, пізня неаполітанська піца. 25 вересня — насичений день пішки: Спакканаполі, набережна з видом на Везувій, панорама з пагорба Вомеро. 26 вересня — піший вихід до порту для отримання авто в Avis о 09:00.</p>
           </div>
           
           <div class="confirmed-hotel">
@@ -570,6 +566,23 @@
               • <b>Клімат:</b> кондиціонер вмикається голосовими командами через Alexa.
             </div>
           </div>
+
+          <!-- КАТ: ДЕТАЛЬНА ІНСТРУКЦІЯ ЩОДО ТАКСІ З АЕРОПОРТУ -->
+          <details style="background: #fdfaf6; border: 1.5px solid var(--gold); border-radius: 12px; padding: 12px 16px; margin-top: 4px;">
+            <summary style="font-weight: 700; color: var(--terracotta-dark); cursor: pointer; font-size: 0.88rem; outline: none;">
+              🚕 Інструкція: Як брати таксі з аеропорту NAP та що сказати водієві ▼
+            </summary>
+            <div style="margin-top: 10px; font-size: 0.85rem; color: #475569; line-height: 1.5; border-top: 1px dashed var(--gold); padding-top: 8px;">
+              • <strong>Де шукати стоянки:</strong> Вийшовши із зали отримання багажу, йдіть строго за вказівниками «Taxi» прямо на вихід із термінала. Сідайте <em>тільки в офіційне біле таксі з живої черги на стоянці</em>. Категорично ігноруйте будь-яких приватних зазивал у залі прильоту.<br>
+              • <strong>Головне правило:</strong> У Неаполі офіційно затверджено фіксований міський тариф (<strong>€21,00 – €25,00</strong>), який уже включає нічний час, багаж та виїзд з аеропорту. Але вимагати його потрібно <em>суворо ДО того, як сісти в машину або рушити</em>.<br>
+              • <strong>Що сказати водієві:</strong><br>
+              <div style="background: #fff; border: 1px solid #cbd5e1; border-radius: 8px; padding: 8px 12px; margin: 6px 0;">
+                <span style="font-weight: 700; color: var(--sea-deep);">«Tariffa predeterminata per Piazza Dante / Via Toledo, per favore»</span><br>
+                <small style="color: #64748b;">(Вимова: <i>«Тари́ффа предэтэрмина́та пэр Пья́цца Да́нтэ / Ви́а Толе́до, пэр фаво́рэ»</i>. Якщо водій перепитає — просто кивніть: <i>«Sì, tariffa fissa»</i>).</small>
+              </div>
+              • <strong>Точка висадки:</strong> Скажіть водієві висадити вас на <strong>Piazza Dante</strong> (біля входу на Via Toledo) — оскільки вулиця перед готелем частково пішохідна, від площі до дверей апартаментів № 429 рівно 1–2 хвилини пішки. Дорога вночі займе ~15–20 хвилин.
+            </div>
+          </details>
 
           <!-- КАТ: Цікаві місця та ресторани Неаполя -->
           <details style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 12px; padding: 12px 16px; margin-top: 4px;">
@@ -603,7 +616,7 @@
         <div class="day-content">
           <div class="plan-block">
             <h4>Логістика візиту та морська вилазка</h4>
-            <p>Об 11:00 отримання машини в порту Неаполя, виїзд автострадою A3 до Салерно (~55 км, 45 хв). Залишаємо авто на стоянці та вирушаємо катером Travelmar уздовж скель до Позітано.</p>
+            <p><strong>О 09:00 отримання машини в порту Неаполя</strong>, виїзд автострадою A3 до Салерно (~55 км, 45 хв). Залишаємо авто на стоянці та вирушаємо катером Travelmar уздовж скель до Позітано без поспіху.</p>
             
             <div class="salerno-grid">
               <div class="salerno-box">
@@ -625,11 +638,11 @@
               </div>
 
               <div class="salerno-box">
-                <strong>⏱ Точний таймінг на воді:</strong>
+                <strong>⏱ Орієнтовний таймінг на воді:</strong>
                 <span>
-                  • <strong>13:10 ➔ 14:20:</strong> Катер Салерно ➔ <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Positano+Spiaggia+Grande" target="_blank">Позітано</a><br>
-                  • <strong>14:20 – 16:50:</strong> 2,5 години в Позітано (вулички, пляж)<br>
-                  • <strong>17:00 ➔ 18:10:</strong> Катер назад у Салерно
+                  • <strong>11:40 (або 13:10):</strong> Катер Салерно ➔ <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Positano+Spiaggia+Grande" target="_blank">Позітано</a><br>
+                  • <strong>2–3 години:</strong> Прогулянка Позітано, обід з видом на скелі<br>
+                  • <strong>17:00:</strong> Катер назад у Салерно (прибуття 18:10)
                 </span>
               </div>
             </div>
@@ -686,6 +699,7 @@
             <h4>Програма та акценти</h4>
             <p>Заїзд о 14:30–15:00 безпосередньо у двір вілли поза зонами ZTL. Прогулянка скелястим старим містом над білими пляжами, церква <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Santuario+di+Santa+Maria+dell+Isola+di+Tropea" target="_blank">Санта-Марія-дель-Ізола</a>. Поїздка на захід сонця до маяка Капо-Ватикано з видом на вулкан Стромболі. Вечеря з червоною цибулею та ндуєю.</p>
           </div>
+          
           <div class="confirmed-hotel">
             <div class="hotel-top">
               <div class="hotel-name">Residenza RoMa</div>
@@ -827,7 +841,6 @@
     <p>Італія 2026 • Усі документи, бронювання, паркінги, геолокації та розклади синхронізовано</p>
   </footer>
 
-  <!-- Скрипт для інтерактивного відкриття/закриття прогнозу -->
   <script>
     function toggleWeather() {
       const panel = document.getElementById('weatherDropdown');
